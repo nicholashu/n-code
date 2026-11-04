@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Check"
+  short_description: "Clarify only the gaps that change what done means"
+  default_prompt: "Use $prompt-check before starting my task: ask only for necessary missing details, then continue the task without rewriting my prompt."
