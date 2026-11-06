@@ -9,7 +9,7 @@ Use this skill when the user explicitly requests T3 orchestration. Editing, revi
 
 ### Keep work proportional
 
-- Complete routine changes directly. Delegate when independent work or review is expected to save time or reduce a concrete risk after accounting for briefing, coordination and integration. Use the smallest effective agent set; more workers are not a progress measure.
+- Complete routine changes directly. Use authorized capacity to advance independent, ready work in parallel. Choose concurrency to shorten delivery time within the budget, accounting for briefing, coordination and integration. Reduce concurrency when contention or integration overhead outweighs the benefit; do not leave useful independent work idle merely to minimize agent count.
 - Define a small batch by a user-visible outcome and its shared interfaces. Parallelize disjoint work and keep one owner for shared files. Integrate the batch before its full verification and review. Separate isolated and composed review journeys need a specific risk or an explicit requirement; do not make both routine.
 - Choose the smallest check that answers the remaining question. Reuse passing evidence when the relevant source, inputs and environment remain applicable; verify changed behavior and affected interfaces. Do not rerun unchanged suites or historical audits merely because a new agent took over.
 - When a defect comes from a shared control, renderer or workflow, inspect its other in-scope consumers before continuing one type at a time. Fix the confirmed shared cause together and check affected behavior; do not turn that inspection into unrelated cleanup or a full-suite campaign.
