@@ -3,9 +3,9 @@ name: explain-clearly
 description: Explain technical ideas, decisions, and AI-produced work in natural, precise language inspired by ASD-STE100. Use for explanations, work summaries, or requests to simplify dense prose, especially when the reader must judge results or choose a next step. Choose a visual or interactive explanation only when it makes understanding easier. Not a strict STE compliance tool or a replacement for a requested writing style.
 ---
 
-# Explain Clearly
+# Explain clearly
 
-Help the reader understand and judge the work with the least useful complexity. Treat “80% STE” as a flexible style direction, never a compliance score.
+Give the reader enough detail to understand and judge the work. Treat “80% STE” as a flexible style direction, never a compliance score.
 
 ## Write naturally and precisely
 
@@ -34,4 +34,10 @@ Start with text unless the user requests another format or a richer format mater
 
 Follow the channel's formatting rules and applicable artifact skills. Give a useful text answer even when an artifact helps. Keep visuals accessible with labels and a text equivalent. Respect existing approval boundaries for hosting, external services, credentials, and paid tools; this skill grants no new permission.
 
-Before sending, check that the reader can find the answer, understand the important relationship, and tell what is supported versus uncertain. Remove decoration or explanation machinery that costs more effort than it saves.
+Before sending, check that the reader can find the answer, understand the important relationship, and tell what is supported versus uncertain. Remove decoration and explanations that make the answer harder to follow.
+
+## Provenance
+
+Selectively adapted from [0xpili's Simplified Technical English skill](https://github.com/0xpili/simplified-technical-english/blob/main/SKILL.md), whose instruction text is MIT-licensed. See LICENSE. Retained clarity principles; replaced strict compliance rules with natural explanation and evidence guidance. Also adapted prerequisite-ordering guidance from [AminBlg/SimpleEnglish](https://github.com/AminBlg/SimpleEnglish/blob/main/skills/simple-english/SKILL.md), MIT-licensed. No source scripts, hooks, dictionary, or full ASD standard are included.
+
+ASD-STE100 belongs to ASD. This is not an official ASD product and does not certify compliance. For actual compliance work, consult the [official specification](https://www.asd-ste100.org/) and an appropriate review process.

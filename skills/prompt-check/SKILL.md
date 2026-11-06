@@ -3,7 +3,7 @@ name: prompt-check
 description: Use in the main orchestrator after receiving an initial task, before implementation or delegation. Quickly check whether missing goals, acceptance criteria, deliverables or boundaries need clarification; ask only when consequential. Skip simple or already clear requests.
 ---
 
-# Prompt Check
+# Prompt check
 
 This is an orchestrator intake check, not a prompt-writing task. Assess once per new task; reassess later steering only if it materially changes scope or success. Missing headings are not missing intent. Never return a rewritten prompt, filled-in template or scored assessment.
 
