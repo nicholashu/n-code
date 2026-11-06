@@ -7,6 +7,16 @@ description: Coordinates substantial work in T3 Code through child agents, provi
 
 Use this skill when the user explicitly requests T3 orchestration. Follow the current runtime's instructions and the user's delegation, provider and model boundaries. Resolve providers and models against the live catalog before dispatch; use only authorized, available settings. Respect provider and host capacity limits. Never substitute a provider or model without authorization.
 
+### Keep work proportional
+
+- Complete routine changes directly. Delegate when independent work or review is expected to save time or reduce a concrete risk after accounting for briefing, coordination and integration. Use the smallest effective agent set; more workers are not a progress measure.
+- Parallelize disjoint work and keep one owner for shared files. Integrate compatible changes as a bounded batch, then review the composed result. Separate isolated and composed review journeys need a specific risk or an explicit requirement; do not make both routine.
+- Choose the smallest check that answers the remaining question. Reuse passing evidence when the relevant source, inputs and environment remain applicable; verify changed behavior and affected interfaces. Do not rerun unchanged suites or historical audits merely because a new agent took over.
+- A missing screenshot or receipt calls for a targeted supplement when it can establish the required state. Replay the full journey only when state changed or a consequential uncertainty cannot otherwise be resolved. Preserve the distinction between historical and fresh evidence; never backdate or invent it.
+- Diagnose infrastructure failures with the cheapest preflight before allocating another full runtime. Follow the runtime's recovery limit; if none is given for a setup or browser failure, allow one bounded recovery attempt after the initial failure. Then stop that blocked path and continue independent work. A new child or UUID does not reset the same failure; require new evidence or a materially different authorized recovery before retrying.
+- Keep briefs to the outcome, write ownership, relevant interfaces, acceptance checks and known blockers. Link existing evidence instead of copying its history. Maintain one current task record with short result summaries; create extra handoff documents only for a real ownership need.
+- Track completed user-visible outcomes and the critical path. Respect stated time/token budgets. Give estimates only with a stated scope and evidence-based assumptions; disclose missing usage data instead of inventing token costs, completion percentages or unsupported date ranges.
+
 ### Choose providers
 
 Before dispatch, if the user has not already specified the providers for this task, ask which agent pool to use with the runtime's multiple-choice question tool when available:
@@ -53,69 +63,20 @@ The Ollama pool and fallback IDs above differ as in the source configuration; ve
 
 Follow each delegated task's supported completion mechanism. Keep task identifiers and cancel only work within the authorized scope. Do not poll or create watcher agents when the runtime provides notifications. Report unavailable providers and failed or incomplete work accurately.
 
-- The main orchestrator decides whether independent review is warranted by task risk, complexity, impact and gaps in verification. Security, authentication, billing, data integrity, concurrency, broad changes and uncertain behavior are signals for stronger review; small, low-risk changes may finish with direct verification. When review adds value, run the independent review loop below automatically. If another explicitly requested review workflow applies, follow its rules instead of duplicating it.
+- The main orchestrator decides whether independent review is warranted by task risk, complexity, impact and gaps in verification. Security, authentication, billing, data integrity, concurrency, broad changes and uncertain behavior are signals for stronger review; small, low-risk changes may finish with direct verification. Respect the selected review level and required project checks; when using judgment and review adds value, use the independent review loop below. If another explicitly requested review workflow applies, follow its rules instead of duplicating it.
 - After integrating changes, verify the composed result with the relevant typechecks, lint and focused tests. Present the verified result and outstanding limits back to the human.
 
 ## Task completion and outside dependencies
 
-- Define each task's acceptance condition and the evidence needed to close it.
-  Record the actual evidence in its task record before closing.
-- When later work needs a response from another person or service, give that
-  wait its own tracked task. Record who or what it awaits, the confirmation
-  required, and the supported callback or next-check method. Keep it open until
-  that confirmation is recorded.
-- Separate delivery, receiving the response, and dependent cleanup when they
-  have different completion events. Cleanup stays blocked by the response task.
-  A request limited to preparing or sending work ends at its own acceptance
-  condition; add outside waits only when the requested outcome depends on them.
-- Use the current runtime's supported wakeup or watch mechanism for waiting.
-  Preserve pending status and next steps when handing back; existing polling,
-  scheduling and approval rules still apply.
+Use the existing task record for scope, owners, dependencies, source revision, outcome, evidence, blockers, next action and release holds. The parent owns the shared record; children own only assigned handoffs. Before resuming, read the record and verify current ownership and revisions; recheck affected work when inputs changed. Keep secrets out. Create a separate waiting task only when a distinct owner or lifecycle needs one. Distinguish delivered work from external acceptance; do not claim a response or cleanup that has not occurred. Release owned test resources promptly unless a real dependency requires them to remain. Use supported completion notifications rather than polling.
 
 ## Independent review loop
 
-1. **Freeze the scope.** Record intent, acceptance criteria, exclusions, the base
-   commit and scoped paths or deliverable version. Include untracked task files;
-   preserve unrelated edits. Run covering checks and disclose missing or
-   pre-failing checks. Keep the same base and scope throughout the loop.
-2. **Dispatch one reviewer.** Prefer an authorized `codex` / Sol reviewer when available, using the current runtime's supported delegation method. Retain the task identifier. Include the original brief,
-   full scoped diff or deliverable, connected files, check results and known
-   limits. Require read-only review, no nested agents, stable finding IDs,
-   severity, a concrete failure case, smallest fix and an APPROVE/CHANGES verdict.
-   Follow the project’s testing instructions when reviewing tests; run focused
-   checks and reserve full suites for when they are necessary. Keep scoped files unchanged while review runs. Follow
-   the current capacity and recovery rules; report the actual reviewer model.
-   A timeout or failed run is not approval.
-3. **Resolve findings autonomously.** Keep a ledger in the current thread with
-   each ID, severity, evidence and outcome: fixed, disputed or declined. Verify
-   each claim; apply the smallest justified in-scope fix without another routine approval stop.
-   Reject false positives with evidence and decline optional or out-of-scope
-   suggestions with a reason. Judge severity by impact and reachable behavior;
-   rare security, data-loss and concurrency failures can still block completion.
-   Run affected checks after fixes. Scope or authority changes still require
-   the applicable approval.
-4. **Re-review changed behavior.** Default to at most three completed review
-   rounds. Extend automatically to five for security, permissions, auth, data
-   loss or state/concurrency while evidenced required findings remain open, or
-   as the user requests. Each new child gets the original brief, same base/scope,
-   ledger, prior findings and responses, unresolved objections, full current
-   diff and changes since the last round. Later rounds inspect changed behavior
-   and open IDs, marking each resolved or still open. Request another round when
-   behavior changed or required findings remain disputed. Declined nits and
-   fixes that leave behavior unchanged need no further round. Changes to agent
-   instructions count as behavior changes when they alter what the agent does.
-5. **Close on evidence.** Finish when the reviewer approves the current behavior
-   diff, required findings are resolved, relevant checks pass and the
-   orchestrator has no outstanding concern. A round with only optional nits can
-   close regardless of its verdict label once the orchestrator verifies no
-   required findings or concerns remain; record that disposition rather than
-   claiming reviewer approval. If a required finding stays disputed after two
-   responses, the budget ends without agreement, or required review cannot run
-   after authorized recovery, report the unresolved risk, evidence and smallest
-   decision the user needs to make. Continue independent work within scope; never
-   treat exhausted rounds or unavailable review as approval.
-6. **Hand off or publish within authority.** Keep publication until review
-   closes, then continue already-authorized commit, push or draft-PR work
-   without another approval stop. Review grants no merge or production authority
-   and never overrides project holds. Report rounds, actual model, checks,
-   fixed/declined findings, remaining limits and publication status concisely.
+Respect the selected review level and required project checks. Efficiency does not waive security, data integrity, concurrency, actual-output or release requirements.
+
+1. **Identify the candidate.** Record the base/candidate revision, scoped changes including untracked files, acceptance checks and known failures. A scoped Git diff and test results normally suffice. Whole-checkout copies, hash sweeps and historical bundle audits need an explicit requirement or a concrete integrity risk. Keep the candidate stable during its review.
+2. **Review the composed change once.** Use one authorized reviewer through the runtime's supported delegation method. Provide the relevant diff, connected interfaces, available check results and evidence links. Require concrete findings, severity, reproduction, smallest fix and an APPROVE/CHANGES verdict; no nested reviewers. Read the project's writing-tests guidance before testing work. The reviewer reruns only checks needed to assess an unresolved risk or verify a material claim, identifying inherited results accurately.
+3. **Resolve findings directly.** Verify each finding and make the smallest justified in-scope repair. Record fixed, disputed or declined findings in the existing task record and run affected checks. Avoid a new implementation child for a small repair. Preserve scope, permissions and unrelated work.
+4. **Recheck the delta when needed.** One review is normally enough; use a targeted follow-up for material repairs or unresolved findings. Give it the changed behavior, prior findings and relevant evidence instead of restarting the entire review. Cosmetic changes and declined nits do not require another round. After two passes without material progress, reassess the cause, scope and budget before further delegation; another pass needs a concrete unresolved risk and expected new evidence. Follow any explicitly required review workflow.
+5. **Close on sufficient evidence.** Resolve required findings and complete relevant checks. Optional nits alone need not keep a task open; record the parent's disposition without inventing reviewer approval. A timeout, exhausted budget or unavailable reviewer cannot satisfy a required review. Report the precise remaining blocker and continue independent authorized work.
+6. **Hand off or publish within authority.** Once applicable review closes, finish already-authorized commit, push or draft-PR work. Review grants no merge or production authority and does not override project holds. Report the resulting behavior, material checks, remaining limits and publication state concisely.
