@@ -5,17 +5,27 @@ description: Coordinates substantial work in T3 Code through child agents, provi
 
 ## T3 Code orchestration
 
-Use this skill when the user explicitly requests T3 orchestration. Follow the current runtime's instructions and the user's delegation, provider and model boundaries. Resolve providers and models against the live catalog before dispatch; use only authorized, available settings. Respect provider and host capacity limits. Never substitute a provider or model without authorization.
+Use this skill when the user explicitly requests T3 orchestration. Editing, reviewing or discussing this skill does not activate orchestration or authorize dispatch. Follow the current runtime's instructions and the user's delegation, provider and model boundaries. Resolve providers and models against the live catalog before dispatch; use only authorized, available settings. Respect provider and host capacity limits. Never substitute a provider or model without authorization.
 
 ### Keep work proportional
 
 - Complete routine changes directly. Delegate when independent work or review is expected to save time or reduce a concrete risk after accounting for briefing, coordination and integration. Use the smallest effective agent set; more workers are not a progress measure.
-- Parallelize disjoint work and keep one owner for shared files. Integrate compatible changes as a bounded batch, then review the composed result. Separate isolated and composed review journeys need a specific risk or an explicit requirement; do not make both routine.
+- Define a small batch by a user-visible outcome and its shared interfaces. Parallelize disjoint work and keep one owner for shared files. Integrate the batch before its full verification and review. Separate isolated and composed review journeys need a specific risk or an explicit requirement; do not make both routine.
 - Choose the smallest check that answers the remaining question. Reuse passing evidence when the relevant source, inputs and environment remain applicable; verify changed behavior and affected interfaces. Do not rerun unchanged suites or historical audits merely because a new agent took over.
-- A missing screenshot or receipt calls for a targeted supplement when it can establish the required state. Replay the full journey only when state changed or a consequential uncertainty cannot otherwise be resolved. Preserve the distinction between historical and fresh evidence; never backdate or invent it.
+- When a defect comes from a shared control, renderer or workflow, inspect its other in-scope consumers before continuing one type at a time. Fix the confirmed shared cause together and check affected behavior; do not turn that inspection into unrelated cleanup or a full-suite campaign.
 - Diagnose infrastructure failures with the cheapest preflight before allocating another full runtime. Follow the runtime's recovery limit; if none is given for a setup or browser failure, allow one bounded recovery attempt after the initial failure. Then stop that blocked path and continue independent work. A new child or UUID does not reset the same failure; require new evidence or a materially different authorized recovery before retrying.
 - Keep briefs to the outcome, write ownership, relevant interfaces, acceptance checks and known blockers. Link existing evidence instead of copying its history. Maintain one current task record with short result summaries; create extra handoff documents only for a real ownership need.
-- Track completed user-visible outcomes and the critical path. Respect stated time/token budgets. Give estimates only with a stated scope and evidence-based assumptions; disclose missing usage data instead of inventing token costs, completion percentages or unsupported date ranges.
+- Track completed user-visible outcomes, tooling blockers and work repeated per batch. Use available elapsed-time and token measurements without creating a separate reporting system; test totals and review rounds are not delivery measures. Respect stated budgets and disclose missing usage data rather than inventing savings, completion percentages or unsupported date ranges.
+
+### Make product evidence reusable
+
+Apply this section when the task requires browser or exported-output proof. Reuse a project-owned collector or existing harness; do not build a new framework for each slice.
+
+1. **Preflight the collector.** Check fixture/schema compatibility, required bootstrap configuration and runtime readiness before the full journey. Verify the intended route/resource, saved revision and selected controls before mutation. Wait for loaded fonts, expected saved values and a settled export state before measuring or claiming refusal. Use the authorized browser; this section grants no alternate-browser access.
+2. **Retain evidence at the event.** Copy every required download into the owned evidence directory immediately, verify its identity and bind it to the resource/revision and audience before closing the tab or cleaning up. Keep initial captures before the first mutation when that ordering is needed to prove the claim. Prefer one concise record of these associations over per-step prose receipts.
+3. **Check representative layouts early.** Inspect one real example of each distinct renderer, audience layout or export path before processing a whole collection. Reuse the proven capture method, but inspect required final outputs; one representative does not prove every layout.
+4. **Classify a failed step.** Distinguish a product defect, an infrastructure/collector failure and a missing-evidence limitation. State the claim left unproved. A missing screenshot or receipt alone does not demonstrate a product defect; it can still leave an explicit required gate open.
+5. **Supplement the missing claim.** Use a targeted capture when source, inputs and relevant state can be established. Replay only the steps needed to resolve a consequential uncertainty; repeat the full journey when that state or causal sequence cannot otherwise be established. Preserve historical failures and verdicts, label retrospective counts and separate timelines, and never backdate evidence or silently weaken required acceptance.
 
 ### Choose providers
 
@@ -69,6 +79,10 @@ Follow each delegated task's supported completion mechanism. Keep task identifie
 ## Task completion and outside dependencies
 
 Use the existing task record for scope, owners, dependencies, source revision, outcome, evidence, blockers, next action and release holds. The parent owns the shared record; children own only assigned handoffs. Before resuming, read the record and verify current ownership and revisions; recheck affected work when inputs changed. Keep secrets out. Create a separate waiting task only when a distinct owner or lifecycle needs one. Distinguish delivered work from external acceptance; do not claim a response or cleanup that has not occurred. Release owned test resources promptly unless a real dependency requires them to remain. Use supported completion notifications rather than polling.
+
+A checkpoint preserves continuity; it is not a routine stop. After recording a completed batch, continue the next unblocked, already-authorized slice without waiting for another "continue". Stop dependent work for a real blocker, required approval or user pause, and respect runtime handoff and budget limits. Do not infer authorization for new scope, publication or release.
+
+For visual work, keep a compact, current example index or gallery when it helps the user assess progress. Distinguish implemented source, verified local behavior/output and outstanding external acceptance. Add evidence links as batches finish instead of reconstructing a catalogue at the end; do not create an extra artifact when the existing task record is sufficient.
 
 ## Independent review loop
 
