@@ -1,6 +1,6 @@
 ---
 name: t3-eval
-description: Run blinded behavioral evaluations of agent skills or prompts in T3 when asked to test their effectiveness or compare variants.
+description: Use when creating a skill, changing skill behavior, or comparing skills or prompts. Skip proofreading.
 ---
 
 # Evaluate agent behavior
