@@ -2,6 +2,8 @@
 
 ## Skills
 
+- [`create-yoto-story`](skills/create-yoto-story/SKILL.md) creates independent Yoto story cards, with bundled GIF, cover, Fish/local speech, upload and playlist tools. Requires Python 3, Pillow, msgpack and ffmpeg; account operations use your own Yoto credentials.
+
 - `explain-clearly` guides clear technical explanations.
 - `prompt-check` checks whether a task has consequential missing details before work begins. Its optional hook is specific to Codex running in T3 Code and uses local, read-only metadata; it fails closed if identity or database schemas cannot be verified. Installing the skill does not enable the hook.
 - `t3-orchestration` guides explicitly requested delegation and review in T3 Code. It defaults to Sol 6.1 coordinating Terra workers; use the current runtime's instructions and override models according to your permissions and capacity.
