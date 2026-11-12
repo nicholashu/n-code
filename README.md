@@ -6,7 +6,7 @@
 
 - `explain-clearly` guides clear technical explanations.
 - `prompt-check` checks whether a task has consequential missing details before work begins. Its optional hook is specific to Codex running in T3 Code and uses local, read-only metadata; it fails closed if identity or database schemas cannot be verified. Installing the skill does not enable the hook.
-- `t3-orchestration` guides explicitly requested delegation and review in T3 Code. It defaults to Sol 6.1 coordinating Terra workers; use the current runtime's instructions and override models according to your permissions and capacity.
+- `t3-orchestration` coordinates substantial tasks in T3 Code when independent work or specialist review would help. The current model coordinates Terra workers. Follow the current runtime's delegation rules and override worker models according to your permissions and capacity.
 - `build-brief` applies when an agreed design needs an implementation brief with acceptance checks and delivery boundaries.
 - `grill-to-pr` applies when a feature needs an interview, implementation, verification and a draft PR. Invoke it with `$grill-to-pr` and the feature idea.
 - `t3-eval` applies when creating a skill, changing skill behavior or comparing prompts. It runs blinded evaluations and skips proofreading.
