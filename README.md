@@ -11,6 +11,8 @@
 - `grill-to-pr` applies when a feature needs an interview, implementation, verification and a draft PR. Invoke it with `$grill-to-pr` and the feature idea.
 - `t3-eval` applies when creating a skill, changing skill behavior or comparing prompts. It runs blinded evaluations and skips proofreading.
 - `unslop` edits writing to remove stock AI phrasing while preserving meaning. Invoke it explicitly.
+- [`babysit-thread`](skills/babysit-thread/SKILL.md) follows a T3 Code thread through its final handoff. It covers waiting, questions, permissions, and settlement.
+- [`file-pr`](skills/file-pr/SKILL.md) files pull requests with evidence suited to the change and verifies uploaded media. It adapts [tstack’s file-pr](https://github.com/t3dotgg/tstack/tree/1085050f3baed1ac724caa4a8166145fb2ac88af/skills/file-pr) under the [MIT license](skills/file-pr/LICENSE).
 
 ## Other skills used
 
@@ -22,7 +24,6 @@ These skills live in their own public repositories. Local versions may include a
 - [resolving-merge-conflicts](https://github.com/mattpocock/skills/tree/321658273cb1d20b76026717d027d505790106d4/skills/engineering/resolving-merge-conflicts) — resolving merge conflicts; linked to a historical revision because it was removed upstream.
 - [writing-for-agents](https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-for-agents) — writing instructions for agents.
 - [skill-shaper](https://github.com/overment/skills/tree/main/skills/skill-shaper) — creating and refining skills.
-- [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr) — preparing concise pull requests.
 
 ## Pstack provenance
 
