@@ -27,6 +27,21 @@ On wake, re-read the thread, the watched and latest runs, and the tracker if the
 
 Keep active, blocked, and approval-pending threads open. Report the blocker, who can resolve it, and what they need to do. A watch grants no authority to restart, merge, release, or approve.
 
-Verify the result against the agreed scope and confirm that the owner recorded the handoff. Ask delegated agents to settle their own threads after recording the handoff. Settlement of your own thread takes effect at turn end, so the lead checks for `settled: true` after the turn ends.
+Verify the result against the agreed scope and confirm that the owner recorded the handoff.
+
+### Collect the handoff retro
+
+Before settlement, ask the worker what materially slowed or blocked the work,
+what it cost, what helped, and what would prevent it next time. Ask the lead
+to include reports from child workers. A reply of “None” is fine. Include the
+question in the delegation brief when possible so it arrives with the handoff.
+If the thread has already settled, use what was recorded and leave it closed.
+Raise urgent blockers with the owner as they happen. Report verified, distinct
+issues through the team's usual feedback channel if it has one. Keep sensitive
+details in the owning conversation.
+
+### Settle and report
+
+Ask delegated agents to settle their own threads after recording the handoff. Settlement of your own thread takes effect at turn end, so the lead checks for `settled: true` after the turn ends.
 
 If a finished delegated thread is still open, ask its owner to settle it or use `thread_organize` with `action: settle` when authorized. Read the state back before reporting settlement. Leave user-started threads under the user's control. Link the thread and evidence in your report.

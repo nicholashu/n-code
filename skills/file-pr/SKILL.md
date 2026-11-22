@@ -25,18 +25,40 @@ If T3 Code offers PR linking for the current thread, link the PR and read the li
 
 ## Attach and verify media
 
-Use the PR's intended audience when deciding which artifacts to upload. GitHub attachments on public repositories can be read without authentication. Keep local media outside the checkout.
+Use `gh` for local screenshots and videos. Keep media outside the checkout
+and vet it for the intended audience. Anyone with the URL can view attachments
+on a public repository. Check `--help` for `--attach` in the shell holding the
+files. GitHub requires push access to upload media. Use one flag per file. For comment attribution, apply
+`leaving-pr-comments` when installed.
 
-Check `--help` for `--attach` in the shell holding the local files. GitHub requires push access to upload images and videos with the CLI. Use one `--attach` per vetted file.
+- Include ready media with `--attach` when creating a PR or a top-level
+  comment. Use `--body-file` for prepared text.
+- Append to an existing PR description with
+  `gh pr edit <pr-url> --attach <path>`. This preserves the current body. To
+  place media within it, fetch the latest body, add local Markdown references,
+  and provide the full file with `--body-file` and the media with `--attach`.
+- Append to an existing top-level comment with
+  `gh pr comment <pr-url> --edit-last --attach <path>` only when the target
+  permalink is the latest comment by the signed-in account and that account has
+  no concurrent writers on the PR. This preserves the current body. For other
+  comments, edit the exact comment by ID if you have the approved asset URL.
+  Use that comment's GitHub editor for local uploads when authorized.
 
-- Include ready media when creating a PR or top-level comment with `gh pr create --attach <path>` or `gh pr comment <pr-url> --attach <path>`.
-- Append to an existing PR description with `gh pr edit <pr-url> --attach <path>`. This preserves the current body. To place media within the description, fetch the latest body into a file, add local Markdown references, and pass the full file with `--body-file` and the media with `--attach`.
-- Append to an existing top-level comment with `gh pr comment <pr-url> --edit-last --attach <path>` only after confirming that the intended permalink is the latest comment by the signed-in account and that account has no concurrent writers on the PR. This preserves the current comment text. For another comment, edit it by ID if you already have the approved asset URL. When a local upload is still required, use the exact comment's GitHub editor if authorized.
+If the CLI lacks attachment support, use the GitHub editor for the exact
+description or comment when authorized. Report any required upload you could
+not complete and keep its verification pending.
 
-If the CLI lacks attachment support, use the GitHub editor for the intended description or comment when authorized and available. Otherwise report the missing attachment and keep media verification pending.
+Put video asset URLs on their own lines for inline playback. After each
+attempt, read back the exact description or comment and check that the original
+text, attribution, and expected media are intact. A nonzero exit can leave
+some uploads published. Retry only the missing files.
 
-Put video asset URLs on their own lines for inline playback. After each attempt, read back the exact description or comment and confirm its original text and attribution are intact and the expected assets are present. A nonzero exit can leave some uploads published. Retry only the missing files.
+Verify the media with the access intended for reviewers. For a private PR,
+read the rendered body with authentication, for example via GraphQL
+`bodyHTML`, and download with repository access. For required review evidence,
+compare downloads with the originals and play or decode any video. Use stable
+asset URLs and keep temporary signed URLs out of the handoff. Report any
+required asset you could not verify and keep review pending.
 
-Verify the links with the access intended for reviewers. For a private PR, use an authenticated read of the rendered body and download the assets with repository access. Compare downloads with the originals and play or decode video. Publish stable asset URLs and keep temporary signed URLs out of the handoff. If reviewers' access or playback cannot be verified, state the gap.
-
-See [GitHub CLI attachment documentation](https://docs.github.com/en/github-cli/github-cli/attaching-files-with-github-cli) and the [PR comment command reference](https://cli.github.com/manual/gh_pr_comment).
+See [GitHub CLI attachment documentation](https://docs.github.com/en/github-cli/github-cli/attaching-files-with-github-cli)
+and the [PR comment command reference](https://cli.github.com/manual/gh_pr_comment).
