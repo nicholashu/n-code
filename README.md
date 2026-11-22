@@ -12,7 +12,7 @@
 - `t3-eval` applies when creating a skill, changing skill behavior or comparing prompts. It runs blinded evaluations and skips proofreading.
 - `unslop` edits writing to remove stock AI phrasing while preserving meaning. Invoke it explicitly.
 - [`babysit-thread`](skills/babysit-thread/SKILL.md) follows a T3 Code thread through its final handoff. It covers waiting, questions, permissions, and settlement.
-- [`file-pr`](skills/file-pr/SKILL.md) files pull requests with evidence suited to the change and verifies uploaded media. It adapts [tstack’s file-pr](https://github.com/t3dotgg/tstack/tree/1085050f3baed1ac724caa4a8166145fb2ac88af/skills/file-pr) under the [MIT license](skills/file-pr/LICENSE).
+- [`file-pr`](skills/file-pr/SKILL.md) files pull requests with evidence suited to the change and covers adding and verifying media in PR descriptions and comments. It adapts [tstack’s file-pr](https://github.com/t3dotgg/tstack/tree/1085050f3baed1ac724caa4a8166145fb2ac88af/skills/file-pr) under the [MIT license](skills/file-pr/LICENSE).
 
 ## Other skills used
 
