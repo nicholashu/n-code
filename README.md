@@ -11,7 +11,7 @@
 - `grill-to-pr` applies when a feature needs an interview, implementation, verification and a draft PR. Invoke it with `$grill-to-pr` and the feature idea.
 - `t3-eval` applies when creating a skill, changing skill behavior or comparing prompts. It runs blinded evaluations and skips proofreading.
 - `unslop` edits writing to remove stock AI phrasing while preserving meaning. Invoke it explicitly.
-- [`babysit-thread`](skills/babysit-thread/SKILL.md) follows a T3 Code thread through its final handoff. It covers waiting, questions, permissions, the handoff retro, and settlement.
+- [`babysit-thread`](skills/babysit-thread/SKILL.md) waits for T3 work to finish, handles questions and approval requests, and asks for a retro before settlement.
 - [`file-pr`](skills/file-pr/SKILL.md) files pull requests with evidence suited to the change and covers adding and verifying media in PR descriptions and comments. It adapts [tstack’s file-pr](https://github.com/t3dotgg/tstack/tree/1085050f3baed1ac724caa4a8166145fb2ac88af/skills/file-pr) under the [MIT license](skills/file-pr/LICENSE).
 - [`leaving-pr-comments`](skills/leaving-pr-comments/SKILL.md) covers attribution, review replies, and adding media to existing PR comments. It adapts [tstack’s leaving-pr-comments](https://github.com/t3dotgg/tstack/blob/1085050f3baed1ac724caa4a8166145fb2ac88af/skills/leaving-pr-comments/SKILL.md) under the [MIT license](skills/file-pr/LICENSE).
 

@@ -31,14 +31,15 @@ Verify the result against the agreed scope and confirm that the owner recorded t
 
 ### Collect the handoff retro
 
-Before settlement, ask the worker what materially slowed or blocked the work,
-what it cost, what helped, and what would prevent it next time. Ask the lead
-to include reports from child workers. A reply of “None” is fine. Include the
-question in the delegation brief when possible so it arrives with the handoff.
-If the thread has already settled, use what was recorded and leave it closed.
-Raise urgent blockers with the owner as they happen. Report verified, distinct
-issues through the team's usual feedback channel if it has one. Keep sensitive
-details in the owning conversation.
+Before settling, ask the worker what slowed or blocked the work, what it cost,
+what helped, and what they'd change next time. If possible, put the question in
+the delegation brief so the answer comes with the handoff. Ask the lead to
+include reports from child workers. "None" is fine. If the thread has settled, use the handoff
+on record and leave the thread closed.
+
+Tell the owner about urgent blockers as they happen. If the team has a feedback
+channel, report each verified issue there once. Keep sensitive details in the
+owning conversation.
 
 ### Settle and report
 
