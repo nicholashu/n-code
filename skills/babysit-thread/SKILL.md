@@ -1,6 +1,6 @@
 ---
 name: babysit-thread
-description: Watch an existing T3 Code thread until the work is done or someone needs to act. Use when asked to babysit or follow a T3 thread. Use babysit-pr for PR checks and reviews if installed.
+description: Follow T3 Code work through its verified handoff. Use when asked to babysit a thread or when handing off, resuming, or replacing T3 work you own. Use babysit-pr for PR checks and reviews if installed.
 ---
 
 # Babysit a T3 thread
@@ -9,7 +9,7 @@ description: Watch an existing T3 Code thread until the work is done or someone 
 
 Use the thread link or task tracker to identify the thread and its T3 environment. Read the thread. Record its link, owner, run ID, expected result, and any required delegated results, reviews, or approvals. Use the owner's existing handoff and keep one watcher per thread.
 
-For a status check, report what you find and stop. If asked to watch, continue until you verify the handoff or find a blocker that needs action.
+For a status check, report what you find and stop. If you own the handoff after a launch or resume, or were asked to watch, apply the [run handoff checklist](references/run-handoff.md) before ending the turn. Repeat it for an active same-scope replacement.
 
 ## Answer questions and handle permissions
 
@@ -19,13 +19,7 @@ Use the platform's approval control only if the exact action and target are alre
 
 ## Wait for completion
 
-When T3 exposes `thread_wait`, pass the `environmentId`, `threadId`, and `runId` for the work you are watching. Set `untilDelegatedWorkSettled: true` if the result depends on delegated or background work.
-
-Check `next` first. If it says T3 will wake the watching thread, keep the watched thread open and end your turn. Resume on the notification, including when the wait returned `timedOut: true`.
-
-`timedOut: true` means the wait window elapsed. Use the run's status and evidence to determine the work's outcome. If a timeout has no `next` message, continue the native wait for the same run where supported. If you cannot wait or receive a notification, use the owner's existing handoff or arrange a permitted follow-up. Report the last verified status if neither is available.
-
-For other wait results, read the thread before deciding what happened. Avoid polling, recurring checks, and extra watcher agents.
+Use the return path confirmed by the [run handoff checklist](references/run-handoff.md). For an agent outside T3 that can register a one-shot wait on a local file, the [optional macOS watcher](references/local-watcher.md) writes the receipt without needing the agent host's credentials.
 
 ## Verify the handoff and settle
 
