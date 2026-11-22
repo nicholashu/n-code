@@ -1,6 +1,29 @@
 # Check the return path after a T3 launch or resume
 
-1. Re-read T3. Record the link, scope, expected handoff, environment and thread IDs, and exact active or queued run ID. Check pending questions, approvals and awaited work. If a run already ended, inspect its latest state and handoff now. Follow an active replacement only when it continues the same scope.
-2. Confirm one way the exact run can return to the owning conversation. Reuse the owner's confirmed handoff if it covers this run. In T3, prefer `thread_wait` with `environmentId`, `threadId` and `runId`. Include `untilDelegatedWorkSettled: true` when needed. Treat `next` as a wake only if it explicitly confirms the owning conversation will resume, including when `timedOut` is true. Outside T3, use a supported one-shot route, such as the [local receipt watcher](local-watcher.md), and record its acceptance and destination. A watcher process starting is only half of a receipt route.
-3. If no return path is confirmed, use one bounded `thread_wait` if available and you have not made one for this run. Re-read T3. If still active, use one permitted follow-up with the exact IDs. If none is available, give the requester the thread link, active run and last verified status, and say automatic follow-up is unavailable. Leave active, blocked or approval-pending work open. Avoid recurring checks and parallel watchers.
-4. When notified, verify the signal names the watched run and re-read both the watched and latest runs. Check pending requests, awaited work, required reviews and the recorded handoff. If this is an active same-scope replacement, verify the old route ended and repeat this checklist for the exact new run. If the scope changed, return ownership to the requester. Report completion after verifying the brief and its evidence.
+1. Re-read T3. Record the link, scope, expected handoff, environment and thread
+   IDs, and the exact active or queued run ID. Check for pending questions,
+   approvals, and work this run is waiting for. If the run has ended, check its
+   latest state and handoff. Follow a replacement run only if it continues the
+   same work.
+2. Confirm how the owning conversation will resume for this run. Reuse the
+   owner's confirmed return path if it covers this run. In T3, prefer
+   `thread_wait` with `environmentId`, `threadId`, and `runId`. Set
+   `untilDelegatedWorkSettled: true` when the result depends on delegated or
+   background work. Rely on `next` only when it says the owning conversation
+   will resume, even if `timedOut` is true. Outside T3, use a supported one-time
+   wait or callback. Record the accepted wait or callback and the conversation
+   it will resume.
+3. If you can't confirm a return path, try one bounded `thread_wait` for the
+   exact run, if available and you haven't tried it for that run. Re-read T3.
+   If the run is still active, use one permitted follow-up with the exact IDs.
+   If none is available, tell the requester that automatic follow-up is
+   unavailable and give them the thread link, run ID, and last verified status.
+   Leave active, blocked, and approval-pending work open. Use one watcher and
+   avoid recurring checks.
+4. When notified, check that the notification names the watched run. Re-read
+   that run and the thread's latest run. Check questions, approvals, and
+   required reviews. Check the evidence in both the parent handoff and the
+   handoffs from child runs the parent was waiting for. If a replacement run
+   continues the same work, confirm the old wait ended and repeat the checklist
+   for the new run. If the scope changed, return ownership to the requester.
+   Confirm the evidence meets the brief before reporting completion.

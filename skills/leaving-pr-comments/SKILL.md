@@ -5,7 +5,7 @@ description: Write or edit GitHub PR comments, including inline review replies a
 
 # Leave PR comments
 
-Start a new agent-authored comment posted on the user's behalf with a GitHub note.
+Start each new comment you write on the user's behalf with this GitHub note.
 
 ```md
 > [!NOTE]
@@ -14,18 +14,32 @@ Start a new agent-authored comment posted on the user's behalf with a GitHub not
 Comment text goes here.
 ```
 
-Use the verified public name of the model that wrote the comment and the user's name or GitHub login. Use the harness name if the model name is unavailable. Keep the comment outside the note.
+Use the verified public model name and the user's name or GitHub login. If the
+model name is unavailable, use the name of the tool running the model. Put the
+reply below the note and use a single attribution.
 
-Use the note for top-level PR comments, inline review comments, replies, and written explanations before resolving or dismissing feedback. Omit it for PR descriptions and for text the user asks to post verbatim without attribution. When editing an existing comment, preserve its attribution.
+Use the note for PR comments, inline replies, and explanations before resolving
+or dismissing feedback. Skip it for PR descriptions, commit messages, and any
+text the user asks you to post verbatim without attribution. Preserve the
+existing attribution when editing a comment.
 
-Lead with the conclusion and cite the code, result, or reproduction that supports it. Distinguish observations from judgment. Check the Markdown, quoted text, and media for private details before posting.
+Lead with the conclusion. Cite the code, result, or reproduction that supports
+it, and make clear which points are your judgment. Preview the Markdown and
+check the text, quotes, and media for secrets or private details before posting.
 
-Verify the comment or review permalink after posting. Resolve a review thread only after its reply is visible at that link.
+Read the saved reply and verify its permalink. Resolve the review thread
+after you confirm the reply appears there.
 
 ## Add media to a comment
 
-When `file-pr` is installed, read [Attach and verify media](../file-pr/SKILL.md#attach-and-verify-media) for the full workflow.
+If you have `file-pr`, use [its media instructions](../file-pr/SKILL.md#attach-and-verify-media).
 
-For a new top-level comment, pass local screenshots and videos with `gh pr comment <pr-url> --attach <path>`. To append media to a posted comment with `--edit-last`, first verify that the exact permalink is the latest comment by the signed-in account and that the account has no concurrent writers on the PR. For any other comment, edit the exact comment by ID if an approved asset URL is available. Use that comment's GitHub editor for a local upload when authorized.
+Otherwise, use `gh pr comment <pr-url> --attach <path>` with the prepared text
+for a new top-level comment. For a posted top-level comment, use
+`--edit-last --attach` only if its permalink matches the signed-in account's latest comment and
+nobody else is writing to the PR with that account. Edit any other comment by
+ID if you have the approved asset URL. If you still need to upload a file, use
+that comment's GitHub editor when authorized.
 
-After each attempt, read back the exact comment. Verify the existing text and attribution, and check which media landed. If the upload partially failed, retry only the missing files. [GitHub CLI attachment documentation](https://docs.github.com/en/github-cli/github-cli/attaching-files-with-github-cli)
+After each attempt, read back the exact comment. Check its text, attribution,
+and media. Retry only the missing files.
